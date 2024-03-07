@@ -36,6 +36,9 @@ func foundTranslatingType(arr []string) Expression {
 	if err1 != nil && err2 == nil || err1 == nil && err2 != nil {
 		panic("Выдача паники, так как используются одновременно разные системы счисления.")
 	}
+	if num1 > 10 || num2 > 10 || num1 < 1 || num2 < 1 {
+		panic("Выдача паники, так как операнды должны быть в диапозоне от 1 до 10")
+	}
 	ex := Expression{num1, arr[1], num2, result}
 	return ex
 }
